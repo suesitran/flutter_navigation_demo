@@ -16,7 +16,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: const MainPage(),
+      home: const SinglePage(),
     );
   }
 }
+
+class SinglePage extends StatelessWidget {
+  const SinglePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      title: const Text('Flutter navigation Demo'),
+    ),
+    body: Center(
+      child: ElevatedButton(
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MainPage())),
+        child: const Text('Go to multitab page'),
+      ),
+    ),
+  );
+}
+
